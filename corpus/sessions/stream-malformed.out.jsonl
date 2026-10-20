@@ -1,0 +1,67 @@
+{"ready":true}
+{"error":"malformed","detail":"offset 0: expected: null"}
+{"error":"malformed","detail":"offset 1: unexpected end of input"}
+{"error":"malformed","detail":"offset 0: unexpected input"}
+{"error":"malformed","detail":"request: expected an object"}
+{"error":"malformed","detail":"offset 4: unexpected end of input"}
+{"error":"malformed","detail":"request: expected an object"}
+{"error":"malformed","detail":"request: expected an object"}
+{"error":"malformed","detail":"request: expected an object"}
+{"error":"malformed","detail":"request: expected an object"}
+{"error":"malformed","detail":"request: expected an object"}
+{"error":"malformed","detail":"request: expected an object"}
+{"error":"malformed","detail":"request: expected an object"}
+{"error":"malformed","detail":"request: expected an object"}
+{"error":"malformed","detail":"offset 3: expected end of input"}
+{"error":"malformed","detail":"offset 7: expected \""}
+{"error":"malformed","detail":"offset 1: expected \""}
+{"error":"malformed","detail":"offset 5: expected :"}
+{"error":"malformed","detail":"offset 3: illegal \\u escape"}
+{"error":"malformed","detail":"request: expected an object"}
+{"error":"malformed","detail":"offset 6: invalid hex character"}
+{"error":"unknown_stream"}
+{"error":"malformed","detail":"query: expected a stream"}
+{"error":"malformed","detail":"request: unknown key query"}
+{"error":"malformed","detail":"request: unknown key sync"}
+{"error":"malformed","detail":"request: unknown key load"}
+{"error":"malformed","detail":"request: unknown key drop"}
+{"error":"malformed","detail":"request: unknown key snapshot"}
+{"error":"malformed","detail":"request: unknown key check"}
+{"error":"malformed","detail":"request.caller: missing"}
+{"error":"malformed","detail":"request.fresh: missing"}
+{"error":"malformed","detail":"request.command: missing"}
+{"error":"malformed","detail":"request.caller: missing"}
+{"error":"malformed","detail":"request: unknown key x"}
+{"error":"malformed","detail":"caller: unknown key kind"}
+{"error":"malformed","detail":"caller: expected an object"}
+{"error":"malformed","detail":"request: an id is not a canonical lowercase UUID, a string holds U+0000 (or an escaped surrogate), or meta is not ewm1.<base64url> of at most 4096 bytes"}
+{"error":"malformed","detail":"request: an id is not a canonical lowercase UUID, a string holds U+0000 (or an escaped surrogate), or meta is not ewm1.<base64url> of at most 4096 bytes"}
+{"error":"malformed","detail":"command: an id is not a canonical lowercase UUID, a string holds U+0000 (or an escaped surrogate), or meta is not ewm1.<base64url> of at most 4096 bytes"}
+{"error":"malformed","detail":"command: unknown key principal"}
+{"error":"malformed","detail":"command: unknown command stream.end"}
+{"error":"malformed","detail":"command.command: expected a string"}
+{"error":"malformed","detail":"command: expected an object"}
+{"error":"malformed","detail":"command.proof_revision_url: missing"}
+{"error":"malformed","detail":"command.proof_revision_url: expected a string"}
+{"error":"malformed","detail":"command: an id is not a canonical lowercase UUID, a string holds U+0000 (or an escaped surrogate), or meta is not ewm1.<base64url> of at most 4096 bytes"}
+{"error":"malformed","detail":"command.actor_kind: expected \"person\" or \"agent\""}
+{"error":"malformed","detail":"command.actor_kind: expected \"person\" or \"agent\""}
+{"error":"malformed","detail":"command: unknown key stream"}
+{"error":"malformed","detail":"request: an id is not a canonical lowercase UUID, a string holds U+0000 (or an escaped surrogate), or meta is not ewm1.<base64url> of at most 4096 bytes"}
+{"error":"malformed","detail":"fresh: expected an array"}
+{"error":"malformed","detail":"fresh: expected strings"}
+{"error":"malformed","detail":"command.principal: missing"}
+{"error":"malformed","detail":"command.meta: expected a string or null"}
+{"error":"malformed","detail":"command: an id is not a canonical lowercase UUID, a string holds U+0000 (or an escaped surrogate), or meta is not ewm1.<base64url> of at most 4096 bytes"}
+{"error":"malformed","detail":"command: an id is not a canonical lowercase UUID, a string holds U+0000 (or an escaped surrogate), or meta is not ewm1.<base64url> of at most 4096 bytes"}
+{"error":"malformed","detail":"command: an id is not a canonical lowercase UUID, a string holds U+0000 (or an escaped surrogate), or meta is not ewm1.<base64url> of at most 4096 bytes"}
+{"error":"malformed","detail":"command: an id is not a canonical lowercase UUID, a string holds U+0000 (or an escaped surrogate), or meta is not ewm1.<base64url> of at most 4096 bytes"}
+{"error":"malformed","detail":"command: an id is not a canonical lowercase UUID, a string holds U+0000 (or an escaped surrogate), or meta is not ewm1.<base64url> of at most 4096 bytes"}
+{"error":"malformed","detail":"command: an id is not a canonical lowercase UUID, a string holds U+0000 (or an escaped surrogate), or meta is not ewm1.<base64url> of at most 4096 bytes"}
+{"stream":"5e000000-0000-7000-8000-000000000006","event":{"stream":"5e000000-0000-7000-8000-000000000006","proof_revision_url":"https://example.org/proofbeta/commit/0123456789abcdef0123456789abcdef01234567","meta":null,"event":"stream.create","actor":"a11ce000-0000-7000-8000-000000000001"},"at":0,"accept":true}
+{"stream":"5e000000-0000-7000-8000-000000000006","event":{"stream":"5e000000-0000-7000-8000-000000000006","principal":"b0b00000-0000-7000-8000-000000000002","meta":null,"event":"principal.invite","actor":"a11ce000-0000-7000-8000-000000000001"},"at":1,"accept":true}
+{"error":"malformed","detail":"command: an id is not a canonical lowercase UUID, a string holds U+0000 (or an escaped surrogate), or meta is not ewm1.<base64url> of at most 4096 bytes"}
+{"stream":"5e000000-0000-7000-8000-000000000006","proof_revision_url":"https://example.org/proofbeta/commit/0123456789abcdef0123456789abcdef01234567","members":[{"principal":"a11ce000-0000-7000-8000-000000000001","may_act":true,"admin":true},{"principal":"b0b00000-0000-7000-8000-000000000002","may_act":true,"admin":false}],"ended":false,"creator":"a11ce000-0000-7000-8000-000000000001","banned":[]}
+{"error":"malformed","detail":"request: expected an object"}
+{"error":"malformed","detail":"request: unknown key n"}
+{"stream":"5e000000-0000-7000-8000-000000000006","proof_revision_url":"https://example.org/proofbeta/commit/0123456789abcdef0123456789abcdef01234567","members":[{"principal":"a11ce000-0000-7000-8000-000000000001","may_act":true,"admin":true},{"principal":"b0b00000-0000-7000-8000-000000000002","may_act":true,"admin":false}],"ended":false,"creator":"a11ce000-0000-7000-8000-000000000001","banned":[]}

@@ -1,0 +1,28 @@
+#!/bin/sh
+# Copyright (c) 2026 the proofbeta authors. All rights reserved. See LICENSE.
+# Replay the corpus: each session through a fresh engine, whose output (its ready line, then one answer per line)
+# must equal the recorded one byte for byte. The sessions are checked against the seal (SHA256SUMS) first.
+#
+#   corpus/replay [STREAM_ENGINE [WORK_ENGINE]]
+#
+# The defaults are the engines `lake build` writes. Each may be a command with arguments, such as
+#   corpus/replay "docker run -i --rm --entrypoint /stream-engine proofbeta" "docker run -i --rm proofbeta"
+# Sessions named stream-* go to the core engine, work-* to the work engine.
+set -eu
+dir="$(cd "$(dirname "$0")" && pwd)"
+stream="${1:-$dir/../.lake/build/bin/stream-engine}"
+work="${2:-$dir/../.lake/build/bin/work-engine}"
+if command -v sha256sum >/dev/null 2>&1; then sum="sha256sum"; else sum="shasum -a 256"; fi
+(cd "$dir" && $sum -c SHA256SUMS >/dev/null) || { echo "replay: the sessions do not match the seal" >&2; exit 1; }
+LEAN_ABORT_ON_PANIC=1; export LEAN_ABORT_ON_PANIC
+sessions=0; lines=0; bad=0
+for in in "$dir"/sessions/*.in.jsonl; do
+  name="$(basename "$in" .in.jsonl)"
+  case "$name" in stream-*) engine="$stream" ;; work-*) engine="$work" ;; *) echo "replay: $name: no engine" >&2; exit 1 ;; esac
+  sessions=$((sessions + 1)); lines=$((lines + $(wc -l < "$in")))
+  if ! $engine < "$in" | diff -u "$dir/sessions/$name.out.jsonl" - > /dev/null; then
+    bad=$((bad + 1)); echo "replay: $name: MISMATCH (diff -u corpus/sessions/$name.out.jsonl against the engine's output)"
+  fi
+done
+echo "replay: $sessions sessions, $lines lines, $bad sessions mismatched"
+[ "$bad" -eq 0 ]

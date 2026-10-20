@@ -1,0 +1,43 @@
+proofbeta Source-Available License
+
+Copyright (c) 2026 the proofbeta authors. All rights reserved.
+
+1. Definitions. "Software" means the source code, proofs, specifications, documentation, test data and every other
+   file in this repository, and any build output made from them. "You" means the individual or legal entity
+   exercising the permission in section 2.
+
+2. Permission. Subject to the conditions below, you may, free of charge and without any other right:
+   (a) view and read the Software; and
+   (b) build the Software and run the resulting programs and checks on computers under your control, solely to verify
+       the proofs in the Software, or to verify that a stream of events or answers was or was not produced by the
+       Software, for your own internal purposes.
+   Any copy of the Software made by downloading, cloning or building it for those purposes must be kept private to
+   you and deleted when it is no longer needed for them.
+
+3. Restrictions. Except as expressly permitted in section 2, you may not, in whole or in part: copy, modify, merge,
+   translate, adapt, publish, distribute, display publicly, perform publicly, sublicense, sell, rent, lease, lend,
+   host or offer as a service, or otherwise make available the Software or any build output made from it; create
+   derivative works based on the Software; or use the Software, or any part of it, to build, train, test or operate any
+   other product or service. You may not remove or alter this license or any copyright notice.
+
+4. No other rights. No trademark license is granted: you may not use any name, logo or mark associated with the
+   Software. No patent license is granted, expressly or by implication, estoppel or otherwise. All rights not
+   expressly granted in this license are reserved by the copyright holders.
+
+5. Hosting platform. If the Software is published on GitHub, users of GitHub receive the limited rights to view and
+   fork the repository on GitHub that GitHub's Terms of Service grant. Those rights are limited to GitHub's
+   functionality and do not extend this license: a fork may not be used, modified or distributed except as sections 2
+   and 3 allow.
+
+6. Termination. This permission ends automatically if you breach any of its terms. On termination you must stop using
+   the Software and delete every copy of it in your possession or control.
+
+7. No warranty. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+   LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. A PROOF
+   IN THE SOFTWARE ESTABLISHES ONLY WHAT ITS STATEMENT SAYS, UNDER THE ASSUMPTIONS STATED IN THE SOFTWARE.
+
+8. Limitation of liability. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+   OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH
+   THE SOFTWARE OR THE USE OF OR OTHER DEALINGS IN THE SOFTWARE.
+
+9. Contributions. No contribution is accepted under this license unless the copyright holders agree to it in writing.

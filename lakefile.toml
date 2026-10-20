@@ -1,0 +1,44 @@
+name = "proofbeta"
+version = "0.1.0"
+defaultTargets = ["StreamCore", "Engine", "Work", "stream-engine", "work-engine", "spec-engine"]
+
+# The proved core: the stream's events, rules, log, commands, theorems, layers and worked examples. Core Lean only
+# (no `import Lean`, no Mathlib).
+[[lean_lib]]
+name = "StreamCore"
+roots = ["StreamCore.Event", "StreamCore.Rules", "StreamCore.Stream", "StreamCore.Command",
+         "StreamCore.Theorems", "StreamCore.CommandTheorems", "StreamCore.Wire",
+         "StreamCore.WireTheorems", "StreamCore.Streams", "StreamCore.StreamState",
+         "StreamCore.WireState", "StreamCore.Oracle", "StreamCore.Service", "StreamCore.Core",
+         "StreamCore.Layer", "StreamCore.Interface"]
+
+# Not proved: JSON in and out of the engine (our own parser and printer, core Lean; no Lean JSON library) and the
+# engine's per-stream map and message dispatch.
+[[lean_lib]]
+name = "Engine"
+roots = ["Engine.Json", "Engine.Step"]
+
+# The work layer on the core: it imports `StreamCore.Interface` and nothing else of the core.
+[[lean_lib]]
+name = "Work"
+roots = ["Work.Recipes", "Work.Meta", "Work.Layer", "Work.Theorems", "Work.Examples"]
+
+# The revision the engines are built from: EngineRevision.lean, written by scripts/stamp_revision before the build
+# (not in git: a commit cannot name its own hash).
+[[lean_lib]]
+name = "EngineRevision"
+
+# The core engine: decode, decide, encode.
+[[lean_exe]]
+name = "stream-engine"
+root = "StreamMain"
+
+# The work engine: the core with the work layer.
+[[lean_exe]]
+name = "work-engine"
+root = "WorkMain"
+
+# The specification path (one global log, Wire.lineJ) as an executable, for differential testing.
+[[lean_exe]]
+name = "spec-engine"
+root = "SpecMain"

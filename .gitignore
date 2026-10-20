@@ -1,0 +1,6 @@
+# Lake's build directory
+.lake/
+# Written by scripts/stamp_revision before each build: the revision the engines are built from
+/EngineRevision.lean
+__pycache__/
+*.pyc

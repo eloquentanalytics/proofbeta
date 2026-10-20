@@ -1,0 +1,40 @@
+#!/bin/sh
+# Copyright (c) 2026 the proofbeta authors. All rights reserved. See LICENSE.
+# Write EngineRevision.lean, the revision the engines are built from (StreamMain.lean and WorkMain.lean import it; it
+# is not in git: a commit cannot name its own hash). Run before `lake build` (scripts/check.sh and the Dockerfile do).
+#
+#   scripts/stamp_revision        the commit: $PROOFBETA_REVISION if set (40 or 64 lowercase hex digits; a build from
+#                                 a tree with no .git, such as a container build), else git's HEAD with "-dirty"
+#                                 appended if the tree has changes, else "unknown"
+#                                 the repository: $PROOFBETA_REPO_URL if set, else the URL of the git remote
+#                                 `origin`, else "unknown"
+#
+# The file is rewritten only when its content changes, so an unchanged revision costs no rebuild. The engines answer
+# {"query":"revision"} and --revision with what is written here. Trusted, not proved (gap_engine_is_revision).
+set -eu
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+OUT="$ROOT/EngineRevision.lean"
+if [ -n "${PROOFBETA_REVISION:-}" ]; then
+  commit="$PROOFBETA_REVISION"
+  if ! printf '%s' "$commit" | grep -Eqx '[0-9a-f]{40}|[0-9a-f]{64}'; then
+    echo "stamp_revision: PROOFBETA_REVISION is not a full commit hash: $commit" >&2; exit 1
+  fi
+elif commit="$(git -C "$ROOT" rev-parse HEAD 2>/dev/null)"; then
+  if [ -n "$(git -C "$ROOT" status --porcelain 2>/dev/null)" ]; then commit="$commit-dirty"; fi
+else
+  commit="unknown"
+fi
+repo="${PROOFBETA_REPO_URL:-$(git -C "$ROOT" remote get-url origin 2>/dev/null || true)}"
+repo="${repo:-unknown}"
+lean_str() { printf '"%s"' "$(printf '%s' "$1" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g')"; }
+new="$(cat <<LEAN
+import Engine.Step
+
+/-! Written by scripts/stamp_revision; not in git. The revision the engines are built from. -/
+
+def StreamCore.Engine.built : StreamCore.Engine.Revision :=
+  ⟨$(lean_str "$commit"), $(lean_str "$repo")⟩
+LEAN
+)"
+if [ ! -f "$OUT" ] || [ "$(cat "$OUT")" != "$new" ]; then printf '%s\n' "$new" > "$OUT"; fi
+echo "stamp_revision: $commit ($repo)"
